@@ -1,0 +1,28 @@
+<h2>About This Song</h2>
+<table>
+  <tbody>
+    <tr>
+      <th>Artist</td>
+      <td><%= @song.artist %></td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td><%= @song.title %></td>
+    </tr>
+    <tr>
+      <th>Suggested By</th>
+      <td><%= @song.suggester.name %></td>
+    </tr>
+    <tr>
+      <th>Votes</th>
+      <td><%= @song.total_votes %></td>
+    </tr>
+     <tr>
+       <th>Voters</th>
+      <td><% @song.votes.each do |votes| %>
+      <%= votes.voter.name %>
+      <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
