@@ -9,4 +9,7 @@ class User < ActiveRecord::Base
 
   serialize :spotify_data, JSON
 
+  before_create do 
+    self.votes_left ||= 10
+  end
 end
