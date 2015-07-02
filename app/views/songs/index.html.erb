@@ -18,11 +18,11 @@
 
     <div class="vote-buttons">
       <% if current_user %>
-        <%= form_tag "/vote" %>
-           <input type= "hidden" name= "song_title" value="<%=song.title%>">
-           <input type= "hidden" name= "value" value= "1">
-          <button class="upvote">△</button>
-        </form>
+        <!--<%= form_tag "/vote" %> 
+           <!-- <input type= "hidden" name= "song_title" value="<%=song.title%>"> 
+           <input type= "hidden" name= "value" value= "1"> -->
+          <button class="upvote" data-song-title = "<%=song.title%>" data-vote-value = 1 >△</button>
+        <!-- </form> -->
       <% end %>
       <div class = "voter">
       <%= song.total_votes %>
@@ -31,7 +31,7 @@
         <%= form_tag "/vote" %>
            <input type= "hidden" name= "song_title" value="<%=song.title%>">
            <input type= "hidden" name= "value" value= "-1">
-           <button class="downvote">▽</button>
+           <button class="downvote" data-song-title = "<%=song.title%>">>▽</button>
         </form>
         <a href="/about_song/<%= song.id %>">More Details</a>
       <% end %>
