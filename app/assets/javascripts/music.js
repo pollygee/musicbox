@@ -1,11 +1,11 @@
-var upvoteHandler = function() {
+var voteHandler = function() {
    var $song = $(this).data("song-title")
    var $vote_value = $(this).data("vote-value")
    console.log($song)
    $.ajax("/vote", {
     type: "POST",
     data: {
-      value: , 
+      value: $vote_value, 
       song_title: $song
     },
     error: function(data){
@@ -14,13 +14,8 @@ var upvoteHandler = function() {
       },
     success: function() {alert("something went right")}
   })
-}
-
-var downvoteHandler = function() {
-
-}
 
 $(document).on("ready", function() {
-  $(".upvote").on("click", upvoteHandler) 
-  $("#downvote").on("click", downvoteHandler)
+  $(".upvote").on("click", voteHandler) 
+  $("#downvote").on("click", voteHandler)
 }) 
