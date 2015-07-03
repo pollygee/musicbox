@@ -5,10 +5,9 @@ class VotesController < ApplicationController
       Vote.create! user_id: current_user.id, song_id: song.id, value: params[:value]
       vl = current_user.votes_left
       current_user.update(votes_left: vl -= 1)
+      render json: song.total_votes 
     else
-      flash[:alert] = "You are out of votes!"
-      status 400
+      render json: {status: :ok}
     end
-    redirect_to ("/")
   end
 end
